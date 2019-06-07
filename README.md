@@ -2,6 +2,8 @@
 
 Pluggable components to add a trello-like kanban board to your application
 
+*MAINTAINERS NEEDED*
+
 [![Build Status](https://travis-ci.org/rcdexta/react-trello.svg?branch=master)](https://travis-ci.org/rcdexta/react-trello)
 [![npm version](https://badge.fury.io/js/react-trello.svg)](https://badge.fury.io/js/react-trello)
 
@@ -96,7 +98,7 @@ This is the container component that encapsulates the lanes and cards
 | canAddLanes         | boolean  | Allows new lanes to be added to the board.                          Default: false                                             |
 | addLaneTitle        | string   | Changes add lane button description.                                Default: false                                             |
 | handleDragStart     | function | Callback function triggered when card drag is started: `handleDragStart(cardId, laneId)`                                       |
-| handleDragEnd       | function | Callback function triggered when card drag ends: `handleDragEnd(cardId, sourceLaneId, targetLaneId, position, cardDetails)`                 |
+| handleDragEnd       | function | Callback function triggered when card drag ends, return false if you want to cancel drop: `handleDragEnd(cardId, sourceLaneId, targetLaneId, position, cardDetails)`                 |
 | handleLaneDragStart | function | Callback function triggered when lane drag is started: `handleLaneDragStart(laneId)`                                           |
 | handleLaneDragEnd   | function | Callback function triggered when lane drag ends: `handleLaneDragEnd(laneId, newPosition, payload)`                                      |
 | cardDragClass       | string   | CSS class to be applied to Card when being dragged                                                                             |
@@ -183,7 +185,7 @@ const CustomCard = props => {
           justifyContent: 'space-between',
           color: props.cardColor
         }}>
-        <div style={{fontSize: 14, fontWeight: 'bold'}}>{props.name}</div>
+        <div style={{fontSize: 14, fontWeight: 'bold'}}>{props.title}</div>
         <div style={{fontSize: 11}}>{props.dueOn}</div>
       </header>
       <div style={{fontSize: 12, color: '#BD3B36'}}>

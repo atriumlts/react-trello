@@ -10,20 +10,6 @@
     "dist",
     "README"
   ],
-  "scripts": {
-    "prepare": "npm run build",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "storybook": "start-storybook -p 9002",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cover": "istanbul cover -x *.test.js _mocha -- -R spec --require tests/config/setup 'tests/**/*.test.js'",
-    "test:report": "cat ./coverage/lcov.info | codecov && rm -rf ./coverage",
-    "build": "babel src --out-dir dist --copy-files",
-    "docs": "build-storybook -o docs",
-    "commit": "git cz",
-    "deploy-storybook": "storybook-to-ghpages",
-    "format": "pretty-quick \"src/**/*.js\""
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/rcdexta/react-trello"
